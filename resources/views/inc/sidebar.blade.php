@@ -59,15 +59,27 @@
                     <ul class="nav nav-treeview">
 
                         <li class="nav-item">
-                            <a href="{{ route('user.index') }}" class="nav-link">
+                            <a href="{{ route('category.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>User</p>
+                                <p>Kategori</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('product.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Product</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('level.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Level</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('user.index') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>User</p>
                             </a>
                         </li>
                     </ul>

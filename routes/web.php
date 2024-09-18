@@ -22,6 +22,8 @@ Route::get('keluar', function () {
 Route::middleware(['checkLevel:3'])->group(function () {});
 Route::resource('penjualan', \App\Http\Controllers\TransactionController::class);
 Route::resource('product', \App\Http\Controllers\ProductController::class);
+Route::resource('category', \App\Http\Controllers\CategoryController::class);
+Route::resource('level', \App\Http\Controllers\LevelController::class);
 Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
 Route::resource('user', \App\Http\Controllers\UserController::class);
 

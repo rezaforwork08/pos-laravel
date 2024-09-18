@@ -72,6 +72,17 @@ class TransactionController extends Controller
                 'qty'       => $request->qty[$key],
                 'sub_total' => $request->sub_total[$key]
             ]);
+
+            // update produk
+            $jumlah_stok = 0;
+            $product = Product::where('id', $request->product_id[$key])->get();
+            for ($i = 0; $i < count($product); $i++) {
+                $jumlah_stok = $request->qty[$key] - $product[$i]->product_qty;
+            }
+
+            Product::where('id', $request->product_id[$key])->update([
+                'stok' => $jumlah_stok,
+            ]);
         }
         toast('Data berhasil di simpan', 'success');
         return redirect()->to('print/' . $sales->id)->with('message', 'Transaksi berhasil di simpan');

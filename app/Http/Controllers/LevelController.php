@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Level;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class CategoryController extends Controller
+class LevelController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categories = Category::get();
-        return view('category.index', compact('categories'));
+        $levels = Level::get();
+        return view('level.index', compact('levels'));
     }
 
     /**
@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return view('level.create');
     }
 
     /**
@@ -30,9 +30,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+        Level::create($request->all());
         toast('Data berhasil di simpan', 'success');
-        return redirect()->to('category')->with('message', 'Data berhasil ditambah');
+        return redirect()->to('level')->with('message', 'Data berhasil ditambah');
     }
 
     /**
@@ -48,8 +48,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        $edit = Category::find($id);
-        return view('category.edit', compact('edit'));
+        $edit = Level::find($id);
+        return view('level.edit', compact('edit'));
     }
 
     /**
@@ -57,11 +57,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        Category::where('id', $id)->update([
-            'category_name' => $request->category_name,
+        Level::where('id', $id)->update([
+            'level_name' => $request->level_name,
         ]);
         toast('Data berhasil diubah', 'success');
-        return redirect()->to('category')->with('message', 'Data berhasil diubah');
+        return redirect()->to('level')->with('message', 'Data berhasil diubah');
     }
 
     /**
@@ -69,8 +69,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        Category::where('id', $id)->delete();
+        Level::where('id', $id)->delete();
         toast('Data berhasil dihapus', 'success');
-        return redirect()->to('category')->with('message', 'Data berhasil dihapus');
+        return redirect()->to('level')->with('message', 'Data berhasil dihapus');
     }
 }
